@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: app
+  name: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+      service: poll
+  template:
+    metadata:
+      labels:
+        app: app
+        service: poll
+    spec:
+      containers:
+      - image: gcr.io/your-project/app
+        name: app
